@@ -40,6 +40,10 @@ app.post("/api/auth/login", async (req: Request, res: Response) => {
   }
 });
 
+app.get("/", async (req: Request, res: Response) => {
+  res.status(201).json({message: "Welcome to Example BE :)"})
+})
+
 app.post("/api/auth/register", async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
