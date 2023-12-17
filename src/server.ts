@@ -2,6 +2,7 @@ import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import { Pool } from "pg";
 import jwt from "jsonwebtoken";
+import cors from "cors"
 
 dotenv.config();
 
@@ -13,6 +14,7 @@ const pool = new Pool({
 });
 
 app.use(express.json());
+app.use(cors()); 
 
 app.post("/api/auth/login", async (req: Request, res: Response) => {
   try {
