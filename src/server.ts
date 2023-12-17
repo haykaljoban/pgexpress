@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 dotenv.config();
 
 const app: Express = express();
-const port = 5000;
+const port = process.env.PORT || 3000;
 
 const pool = new Pool({
   connectionString: process.env.ELEPHANTSQL_URL,
@@ -40,6 +40,6 @@ app.post("/api/auth/login", async (req: Request, res: Response) => {
   }
 });
 
-app.listen(port, () => {
+app.listen(port as number, "0.0.0.0",() => {
   console.log(`⚡️[server]: Server is running at PORT:${port}`);
 });
